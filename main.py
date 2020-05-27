@@ -11,5 +11,5 @@ api = Api(app)
 api.add_resource(controller.Controller, '/')
 
 if __name__ == '__main__':
-    app.run(host="34.71.158.225", port=8080, debug=True, use_reloader=True)
+    app.run(host="0.0.0.0", port=80, debug=True, use_reloader=True)
 
