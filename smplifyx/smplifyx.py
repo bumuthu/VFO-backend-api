@@ -13,7 +13,8 @@ class Smplifyx :
         self.betas = [0,0,0,0,0,0,0,0]
         with open('../scripts/make_body_model.sh', 'w') as f:
             f.write('#!/bin/sh\nexit 0')
-        shellscript = subprocess.Popen(["/scripts/make_body_model.sh"], shell=True,  stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        # make_body_model.sh
+        shellscript = subprocess.Popen(["/home/bumuthudilshanhhk/scripts/"], shell=True,  stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
         shellscript.wait()
         print('ooooooooooooooooooooooooooooooooooooooooooooo',shellscript.returncode)
