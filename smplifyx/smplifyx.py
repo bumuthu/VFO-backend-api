@@ -11,6 +11,8 @@ class Smplifyx :
 
     def get_betas(self):
         self.betas = [0,0,0,0,0,0,0,0]
+        with open('../scripts/make_body_model.sh', 'w') as f:
+            f.write('#!/bin/sh\nexit 0')
         shellscript = subprocess.Popen(["../scripts/make_body_model.sh"], stdin=subprocess.PIPE)
         returncode = shellscript.wait()
         print('ooooooooooooooooooooooooooooooooooooooooooooo',returncode)
