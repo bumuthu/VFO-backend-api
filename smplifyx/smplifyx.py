@@ -11,9 +11,9 @@ class Smplifyx :
 
     def get_betas(self):
         self.betas = [0,0,0,0,0,0,0,0]
-        # shellscript = subprocess.Popen(["../scripts/make_body_model.sh"], stdin=subprocess.PIPE)
-        # returncode = shellscript.wait()
-        # print('ooooooooooooooooooooooooooooooooooooooooooooo',returncode)
+        shellscript = subprocess.Popen(["../scripts/make_body_model.sh"], stdin=subprocess.PIPE)
+        returncode = shellscript.wait()
+        print('ooooooooooooooooooooooooooooooooooooooooooooo',returncode)
         return self.betas
 
     def get_texture(self):
