@@ -12,7 +12,7 @@ class Smplifyx :
         self.recommendation = []
 
         with open("../scripts/images/img.png", "wb") as fh:
-            fh.write(base64.decodebytes(self.image))
+            fh.write(self.image)
 
     def get_betas(self):
         self.betas = [0,0,0,0,0,0,0,0]
