@@ -1,6 +1,5 @@
 import base64
 import subprocess
-import base64
 import pickle
 
 
@@ -39,7 +38,7 @@ class Smplifyx :
 
     def get_texture(self):
         with open("./assets/sample_texture.jpg", "rb") as imageFile:
-            self.texture = str(base64.b64encode(imageFile.read()))
+            self.texture = base64.b64encode(imageFile.read())
         return self.texture
 
     def get_recommendation(self):
