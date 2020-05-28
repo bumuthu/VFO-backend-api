@@ -16,7 +16,8 @@ class Smplifyx :
         # make_body_model.sh
         shellscript = subprocess.Popen(["../scripts/make_body_model.sh"], shell=True,  stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         output, error = shellscript.communicate()
-        print(output, error)
+        print('logs...............',output)
+        print('errors.............',error)
         shellscript.wait()
         print('ooooooooooooooooooooooooooooooooooooooooooooo',shellscript.returncode)
         return self.betas
