@@ -38,7 +38,7 @@ class Smplifyx :
 
     def get_texture(self):
         with open("./assets/sample_texture.jpg", "rb") as imageFile:
-            self.texture = base64.b64encode(imageFile.read())
+            self.texture = str(base64.b64encode(imageFile.read()))
         return self.texture
 
     def get_recommendation(self):
