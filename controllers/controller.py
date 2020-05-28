@@ -6,7 +6,7 @@ from smplifyx import smplifyx
 class Controller(Resource):
 
     def __init__(self):
-        print('Controller initiated')
+        print('Controller got response...')
 
     def get(self):
         return {"message" : "Hello! I am working"}, 200
