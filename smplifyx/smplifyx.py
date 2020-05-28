@@ -25,8 +25,10 @@ class Smplifyx :
 
         with open('../scripts/output/results/img/000.pkl', 'rb') as f:
             betas = pickle.load(f)['betas'][0]
-            self.betas = list(betas)
-            print('.................................',type(betas), betas, list(betas))
+            betas_new = [n for n in betas]
+
+            self.betas = betas_new
+            print('.................................',type(betas_new), betas_new, list(betas_new))
 
         shellscript.wait()
         return self.betas
