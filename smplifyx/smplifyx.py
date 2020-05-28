@@ -6,8 +6,6 @@ import pickle
 class Smplifyx :
     def __init__(self, image, gender):
 
-        image += "=" * ((4 - len(image) % 4) % 4)
-
         self.image = base64.b64decode(image)
         self.gender = gender
         self.texture = ''
@@ -26,17 +24,11 @@ class Smplifyx :
         print('errors...',error)
 
         with open('../scripts/output/results/img/000.pkl', 'rb') as f:
-            data = pickle.load(f)
-        text = ''
-        for i in data:
-            text += str(i) + ': ' + str(len(data[i][0])) + '\n'
-
-        # print(text)
-        # with open('number_params.txt', 'w') as f:
-        #     print(text, file=f)
+            betas = pickle.load(f)['betas'][0]
+            self.betas = betas
+            print(betas)
 
         shellscript.wait()
-        print('oooooooooooooooooooooooo',shellscript.returncode)
         return self.betas
 
     def get_texture(self):
