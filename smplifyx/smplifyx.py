@@ -5,14 +5,14 @@ import pickle
 
 class Smplifyx :
     def __init__(self, image, gender):
-        self.image = image
+        self.image = base64.b64decode(image)
         self.gender = gender
         self.texture = ''
         self.betas = []
         self.recommendation = []
 
         with open("../scripts/images/img.png", "wb") as fh:
-            fh.write(base64.decodebytes(image))
+            fh.write(base64.decodebytes(self.image))
 
     def get_betas(self):
         self.betas = [0,0,0,0,0,0,0,0]
