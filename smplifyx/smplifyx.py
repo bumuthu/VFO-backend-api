@@ -1,6 +1,9 @@
 import base64
 import subprocess
 
+import pickle
+
+
 class Smplifyx :
     def __init__(self, image, gender):
         self.image = image
@@ -16,10 +19,20 @@ class Smplifyx :
         # make_body_model.sh
         shellscript = subprocess.Popen(["../scripts/make_body_model.sh"], shell=True,  stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         output, error = shellscript.communicate()
-        print('logs...............',output)
-        print('errors.............',error)
+        print('logs...',output)
+        print('errors...',error)
+
+        with open('../scripts/output/results/99/000.pkl', 'rb') as f:
+            data = pickle.load(f)
+        text = ''
+        for i in data:
+            text += str(i) + ': ' + str(len(data[i][0])) + '\n'
+        print(text)
+        with open('number_params.txt', 'w') as f:
+            print(text, file=f)
+
         shellscript.wait()
-        print('ooooooooooooooooooooooooooooooooooooooooooooo',shellscript.returncode)
+        print('oooooooooooooooooooooooo',shellscript.returncode)
         return self.betas
 
     def get_texture(self):
