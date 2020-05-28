@@ -37,7 +37,7 @@ class Smplifyx :
         return self.betas
 
     def get_texture(self):
-        with open("./assets/sample_texture.jpg", "rb") as imageFile:
+        with open("./assets/sample_image.png", "rb") as imageFile:
             self.texture = str(base64.b64encode(imageFile.read()))
         return self.texture
 
