@@ -5,6 +5,9 @@ import pickle
 
 class Smplifyx :
     def __init__(self, image, gender):
+
+        image += "=" * ((4 - len(image) % 4) % 4)
+
         self.image = base64.b64decode(image)
         self.gender = gender
         self.texture = ''
