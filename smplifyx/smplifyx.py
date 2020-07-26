@@ -20,8 +20,8 @@ class Smplifyx :
 
         shellscript = subprocess.Popen(["../scripts/make_body_model.sh"], shell=True,  stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         output, error = shellscript.communicate()
-        print('logs...',output)
-        print('errors...',error)
+        # print('logs...',output)
+        # print('errors...',error)
 
         with open('../scripts/output/results/img/000.pkl', 'rb') as f:
             betas = pickle.load(f)['betas'][0]
