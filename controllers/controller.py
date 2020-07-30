@@ -16,12 +16,11 @@ class Controller(Resource):
 
         image = data_in['image']
         gender = data_in['gender']
-        smplifyx_inst = smplifyx.Smplifyx(image, gender)
+        focal_length = data_in['focal_length']
+        smplifyx_inst = smplifyx.Smplifyx(image, gender, focal_length)
 
         response = {
             'betas':  smplifyx_inst.get_betas(),
-            'texture' :  smplifyx_inst.get_texture(),
-            'recommendation': smplifyx_inst.get_recommendation()
             }
 
         return response, 200

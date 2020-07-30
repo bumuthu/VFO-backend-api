@@ -4,11 +4,11 @@ import pickle
 import yaml
 
 class Smplifyx :
-    def __init__(self, image, gender):
+    def __init__(self, image, gender, focal_length):
 
         self.image = base64.b64decode(image)
         self.gender = gender
-        self.focal_length = 5000
+        self.focal_length = focal_length
         self.texture = ''
         self.betas = []
         self.recommendation = []
@@ -21,14 +21,13 @@ class Smplifyx :
     def edit_smplx_configs(self):
         with open("../smplifyx/cfg_files/fit_smplx.yaml") as file:
             smplx_configs = yaml.load(file, Loader=yaml.FullLoader)
-            print(smplx_configs)
+            # print(smplx_configs)
 
         smplx_configs["gender"] = self.gender
         smplx_configs["focal_length"] = self.focal_length
 
         with open("../smplifyx/cfg_files/fit_smplx.yaml", 'w') as file:
             documents = yaml.dump(smplx_configs, file)
-            print(documents)
 
     def get_betas(self):
         self.betas = [0,0,0,0,0,0,0,0]
@@ -38,12 +37,12 @@ class Smplifyx :
         # print('logs...',output)
         # print('errors...',error)
 
+        print('processing...')
+
         with open('../scripts/output/results/img/000.pkl', 'rb') as f:
             betas = pickle.load(f)['betas'][0]
             betas_new = [str(n) for n in betas]
-
             self.betas = betas_new
-            print(list(betas_new))
 
         shellscript.wait()
         return self.betas
