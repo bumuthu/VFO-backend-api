@@ -1,0 +1,12 @@
+left_hand_pose: 12
+reye_pose: 3
+global_orient: 3
+leye_pose: 3
+right_hand_pose: 12
+betas: 10
+body_pose: 32
+jaw_pose: 3
+camera_rotation: 3
+expression: 10
+camera_translation: 3
+
