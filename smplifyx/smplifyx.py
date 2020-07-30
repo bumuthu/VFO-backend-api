@@ -25,6 +25,7 @@ class Smplifyx :
 
         smplx_configs["gender"] = self.gender
         smplx_configs["focal_length"] = self.focal_length
+        smplx_configs["visualize"] = True
 
         with open("../smplifyx/cfg_files/fit_smplx.yaml", 'w') as file:
             documents = yaml.dump(smplx_configs, file)
